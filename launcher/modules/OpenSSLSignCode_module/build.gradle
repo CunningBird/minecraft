@@ -1,0 +1,11 @@
+def mainClassName = "pro.gravit.launchermodules.osslsigncode.OSSLSignCodeModule"
+
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+dependencies {
+
+}
+jar {
+    manifest.attributes("Module-Main-Class": mainClassName)
+}

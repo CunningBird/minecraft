@@ -1,0 +1,11 @@
+def mainClassName = "pro.gravit.launchermodules.addhash.AddHashModule"
+
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+dependencies {
+    api 'org.mindrot:jbcrypt:0.4'
+}
+jar {
+    manifest.attributes("Module-Main-Class": mainClassName)
+}
