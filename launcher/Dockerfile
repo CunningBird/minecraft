@@ -17,6 +17,7 @@ RUN mkdir /app/ && \
     mkdir /app/compat && \
     mkdir /app/compat/launchserver-modules && \
     mkdir /app/data && \
+    mkdir /app/runtime && \
     mkdir /app/updates
 
 WORKDIR /app
@@ -34,7 +35,8 @@ COPY --from=build /home/gradle/app/LaunchServer/build/libs/libraries ./libraries
 COPY --from=build /home/gradle/app/LaunchServer/build/libs/launcher-libraries ./launcher-libraries/default
 COPY --from=build /home/gradle/app/LaunchServer/build/libs/launcher-libraries-compile* ./launcher-libraries-compile/default
 
-COPY --from=build /home/gradle/app/launcher-runtime/runtime .
+COPY --from=build /home/gradle/app/launcher-runtime/runtime ./runtime
+COPY --from=build /home/gradle/app/launcher-runtime/runtime ./data/runtime
 COPY --from=build /home/gradle/app/launcher-runtime/build/libs/JavaRuntime*.jar ./launcher-modules
 COPY --from=build /home/gradle/app/launcher-runtime/compat ./compat/runtime
 
