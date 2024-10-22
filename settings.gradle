@@ -1,0 +1,16 @@
+rootProject.name = 'ricardocraft'
+
+include 'launcher'
+
+include 'launcher:Launcher'
+include 'launcher:LauncherCore'
+include 'launcher:LauncherAPI'
+include 'launcher:LauncherClient'
+include 'launcher:LauncherStart'
+include 'launcher:ServerWrapper'
+include 'launcher:LaunchServer'
+include 'launcher:launcher-runtime'
+include 'launcher:modules'
+file('launcher/modules').eachDir { sub ->
+    if (sub.name.endsWith('_module') || sub.name.endsWith('_swmodule') || sub.name.endsWith('_lmodule')) include 'launcher:modules:' + sub.name
+}

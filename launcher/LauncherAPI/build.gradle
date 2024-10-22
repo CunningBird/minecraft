@@ -3,7 +3,7 @@ targetCompatibility = '17'
 
 dependencies {
     api project(':LauncherCore')
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: rootProject['verJunit']
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: project['verJunit']
 }
 
 test {

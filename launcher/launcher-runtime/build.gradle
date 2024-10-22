@@ -72,10 +72,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
 }
 
-wrapper {
-    distributionType = Wrapper.DistributionType.ALL
-}
-
 defaultTasks 'build'
 
 if (hasProperty('mavenUsername') && hasProperty('mavenPassword') && hasProperty('mavenReleaseRepository') && hasProperty('mavenSnapshotRepository')) {

@@ -2,16 +2,16 @@ sourceCompatibility = '17'
 targetCompatibility = '17'
 
 dependencies {
-    compileOnly group: 'org.fusesource.jansi', name: 'jansi', version: rootProject['verJansi']
-    compileOnly group: 'org.jline', name: 'jline', version: rootProject['verJline']
-    compileOnly group: 'org.jline', name: 'jline-reader', version: rootProject['verJline']
-    compileOnly group: 'org.jline', name: 'jline-terminal', version: rootProject['verJline']
-    compileOnly group: 'org.slf4j', name: 'slf4j-api', version: rootProject['verSlf4j']
-    api group: 'com.google.code.gson', name: 'gson', version: rootProject['verGson']
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: rootProject['verJunit']
-    testImplementation group: 'org.jline', name: 'jline', version: rootProject['verJline']
-    testImplementation group: 'org.jline', name: 'jline-reader', version: rootProject['verJline']
-    testImplementation group: 'org.jline', name: 'jline-terminal', version: rootProject['verJline']
+    compileOnly group: 'org.fusesource.jansi', name: 'jansi', version: project['verJansi']
+    compileOnly group: 'org.jline', name: 'jline', version: project['verJline']
+    compileOnly group: 'org.jline', name: 'jline-reader', version: project['verJline']
+    compileOnly group: 'org.jline', name: 'jline-terminal', version: project['verJline']
+    compileOnly group: 'org.slf4j', name: 'slf4j-api', version: project['verSlf4j']
+    api group: 'com.google.code.gson', name: 'gson', version: project['verGson']
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: project['verJunit']
+    testImplementation group: 'org.jline', name: 'jline', version: project['verJline']
+    testImplementation group: 'org.jline', name: 'jline-reader', version: project['verJline']
+    testImplementation group: 'org.jline', name: 'jline-terminal', version: project['verJline']
 }
 
 test {
