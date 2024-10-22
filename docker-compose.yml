@@ -1,14 +1,5 @@
 services:
 
-#    test:
-#        build:
-#            context: oldlauncher
-#        restart: always
-#        stdin_open: true
-#        tty: true
-#        volumes:
-#            - test:/app/data
-
     launcher:
         build:
             context: launcher

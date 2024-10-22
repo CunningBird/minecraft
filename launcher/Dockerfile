@@ -50,6 +50,7 @@ RUN ln -s ../data/libraries libraries/custom && \
 
 RUN echo '-Xmx512M' > launchserver_args.txt
 
+WORKDIR /app/data
 VOLUME /app/data
 EXPOSE 9274
-ENTRYPOINT ["java", "-jar", "-Dlaunchserver.dir.libraries=libraries", "-Dlaunchserver.dir.launcher-libraries=launcher-libraries", "-Dlaunchserver.dir.modules=modules", "-Dlaunchserver.dir.launcher-modules=launcher-modules", "-Dlauncher.useSlf4j=true", "/app/LaunchServer.jar"]
+ENTRYPOINT ["java", "-jar", "-Dlaunchserver.dir.libraries=../libraries", "-Dlaunchserver.dir.launcher-libraries=../launcher-libraries", "-Dlaunchserver.dir.modules=../modules", "-Dlaunchserver.dir.launcher-modules=../launcher-modules", "-Dlauncher.useSlf4j=true", "/app/LaunchServer.jar"]
