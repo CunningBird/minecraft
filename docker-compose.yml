@@ -1,13 +1,13 @@
 services:
 
-    test:
-        build:
-            context: oldlauncher
-        restart: always
-        stdin_open: true
-        tty: true
-        volumes:
-            - test:/app/data
+#    test:
+#        build:
+#            context: oldlauncher
+#        restart: always
+#        stdin_open: true
+#        tty: true
+#        volumes:
+#            - test:/app/data
 
     launcher:
         build:
@@ -23,7 +23,7 @@ services:
             context: nginx
         restart: always
         volumes:
-            - test:/volume
+            - launcher:/volume
         ports:
             - 17549:80
         depends_on:
@@ -53,6 +53,5 @@ services:
 #        environment:
 #            - SPRING_APPLICATION_PORT=8080
 volumes:
-    test:
     launcher:
     postgres-data:
