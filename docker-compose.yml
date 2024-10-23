@@ -1,13 +1,21 @@
 services:
 
-  test:
+  server-forge:
     build:
-      context: external-launcher
-    restart: always
+      context: server-forge
+    ports:
+      - 25565:25565
+    environment:
+      EULA: "TRUE"
+      TYPE: FORGE
+      DEBUG: "true"
+      VERSION: 1.12.2
+    restart: unless-stopped
     stdin_open: true
     tty: true
-    volumes:
-      - test:/app/data
+#    volumes:
+#      - server-forge:/data
+#      - ./mods:/mods:ro
 
   launcher:
     build:
@@ -29,16 +37,16 @@ services:
     depends_on:
       - launcher
 
-  database:
-    image: "postgres:17.0-alpine3.20"
-    container_name: database
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+#  database:
+#    image: "postgres:17.0-alpine3.20"
+#    container_name: database
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=password
+#    volumes:
+#      - postgres-data:/var/lib/postgresql/data
 
 #    application:
 #        image: "cunningbird/demo:1.0.0"
@@ -52,7 +60,33 @@ services:
 #            - "8080:8080"
 #        environment:
 #            - SPRING_APPLICATION_PORT=8080
+
+#  external-server-forge:
+#    image: itzg/minecraft-server
+#    ports:
+#      - 25565:25565
+#    environment:
+#      EULA: "TRUE"
+#      TYPE: FORGE
+#      DEBUG: "true"
+#      VERSION: 1.12.2
+#    volumes:
+#      - external-server-forge:/data
+#      - ./mods:/mods:ro
+
+#  external-launcher:
+#    build:
+#      context: external-launcher
+#    restart: always
+#    stdin_open: true
+#    tty: true
+#    volumes:
+#      - external-launcher:/app/data
+
 volumes:
-  test:
+#  server-forge:
   launcher:
   postgres-data:
+
+  external-server-forge:
+  external-launcher:
